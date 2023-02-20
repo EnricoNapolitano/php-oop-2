@@ -16,7 +16,7 @@ class Products
     public $description;
     public $animal_category;
 
-    public function __construct($_price, $_name, $_description, AnimalCategory $_animal_category, $_url_image = 'https://svg.template.creately.com/MIQyt1kde0t' )
+    public function __construct($_price, $_name, $_description, $_animal_category, $_url_image = 'https://svg.template.creately.com/MIQyt1kde0t' )
     {
         $this->price=$_price;
         $this->name=$_name;
