@@ -13,8 +13,16 @@
                 <div class="col">
                     <div class="card p-4" style="width: 18rem">
                         <img src="<?= $product->url_image ?>" class="card-img-top" alt="<?= $product->name ?>" style="height: 18rem">
-                        <div class="card-body">
-                            <p class="text-center card-text"><?= $product->description ?></p>
+                        <div class="card-body text-center">
+                            <h2 class="h4"><?= $product->name ?></h2>
+                            <h6>Categoria: <?= $product->animal_category ?></h6>
+                            <p class="card-text"><?= $product->description ?></p>
+
+                            <?php if($product instanceof Cage) : ?>
+                                <h6>Dimensioni:</h6>
+                                <p><?= $product->width ?>cm x <?= $product->height ?>cm x <?= $product->depth ?>cm</p>
+                            <?php endif; ?>
+
                         </div>
                     </div>
                 </div>
