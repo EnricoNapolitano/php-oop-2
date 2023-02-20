@@ -10,7 +10,7 @@ class Cage extends Products
 
     public function __construct($_price, $_name, $_description, $_animal_category, $_width, $_height, $_depth, $_url_image = 'https://svg.template.creately.com/MIQyt1kde0t')
     {
-        parent::__construct($_price, $_name, $_description, $_animal_category, $_url_image = 'https://svg.template.creately.com/MIQyt1kde0t');
+        parent::__construct($_price, $_name, $_description, $_animal_category, $_url_image);
         $this->width=$_width;
         $this->height=$_height;
         $this->depth=$_depth;
