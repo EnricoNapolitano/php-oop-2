@@ -30,6 +30,11 @@
                                 <h6>Dimensioni:</h6>
                                 <p><?= $product->width ?>cm x <?= $product->height ?>cm x <?= $product->depth ?>cm</p>
                             <?php endif; ?>
+
+                            <?php if($product instanceof Food) : ?>
+                                <h6>Ingrediente principale</h6>
+                                <p><?= $product->main_ingredient ?></p>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
