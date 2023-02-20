@@ -20,7 +20,7 @@
                         <div class="card-body text-center d-flex flex-column justify-content-center align-items-center">
                             <h2 class="h4"><?= $product->name ?></h2>
                             <figure class="text-center" style="width: 60px">
-                                <img class="img-fluid d-block rounded-circle" src="<?= $product->getIcon() ?>" alt="<?= $product->animal_category ?>">
+                                <img class="img-fluid d-block rounded-circle" src="<?= $product->getIcon() ?>" alt="<?= $product->animal_category->animal ?>">
                             </figure>
 
                             <h5>Descrizione prodotto</h2>

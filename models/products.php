@@ -21,7 +21,7 @@ class Products
         $this->price=$_price;
         $this->name=$_name;
         $this->description=$_description;
-        $this->animal_category=$_animal_category;
+        $this->animal_category = new AnimalCategory($_animal_category);
         $this->url_image=$_url_image;
     }
 
@@ -38,7 +38,7 @@ class Products
     
     public function getIcon()
     {
-        return $this->setIcon($this->animal_category);
+        return $this->setIcon($this->animal_category->animal);
     }
 }
 ?>
