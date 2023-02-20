@@ -13,8 +13,11 @@
                 <div class="col">
                     <div class="card p-4" style="width: 18rem">
                         <img src="<?= $product->url_image ?>" class="card-img-top" alt="<?= $product->name ?>" style="height: 18rem">
-                        <div class="card-body text-center">
+                        <div class="card-body text-center d-flex flex-column justify-content-center align-items-center">
                             <h2 class="h4"><?= $product->name ?></h2>
+                            <figure class="text-center" style="width: 60px">
+                                <img class="img-fluid d-block rounded-circle" src="<?= $product->getIcon() ?>" alt="<?= $product->animal_category ?>">
+                            </figure>
                             <h6>Categoria: <?= $product->animal_category ?></h6>
                             <p class="card-text"><?= $product->description ?></p>
 
