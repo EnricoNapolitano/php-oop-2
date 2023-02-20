@@ -27,9 +27,13 @@ class Products
 
     private function setIcon($category)
     {
-        $cat_icon = 'https://www.robinsonpetshop.it/news/cms2017/wp-content/uploads/2022/07/GattinoPrimiMesi.jpg';
-        $dog_icon = 'https://images.squarespace-cdn.com/content/v1/58b4791ad2b857c893179e34/1537971642021-LHW76T7O8JG0M4GLTSTP/IMG_2818.jpg?format=500w';
-        return $category === 'cat' ? $cat_icon : $dog_icon ;
+        //check validation
+        if($category != 'cat' && $category != 'dog') return false;
+        else {
+            $cat_icon = 'https://www.robinsonpetshop.it/news/cms2017/wp-content/uploads/2022/07/GattinoPrimiMesi.jpg';
+            $dog_icon = 'https://images.squarespace-cdn.com/content/v1/58b4791ad2b857c893179e34/1537971642021-LHW76T7O8JG0M4GLTSTP/IMG_2818.jpg?format=500w';
+            return $category === 'cat' ? $cat_icon : $dog_icon ;
+        }
     }
     
     public function getIcon()
