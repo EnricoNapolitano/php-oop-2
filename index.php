@@ -13,15 +13,17 @@
 
             <?php foreach($products as $product) : ?>
                 <div class="col">
-                    <div class="card p-4" style="width: 18rem">
-
-                        <img src="<?= $product->url_image ?>" class="card-img-top" alt="<?= $product->name ?>" style="height: 18rem">
-                        
-                        <div class="card-body text-center d-flex flex-column justify-content-center align-items-center">
-                            <h2 class="h4"><?= $product->name ?></h2>
-                            <figure class="text-center" style="width: 60px">
+                    <div class="card" style="width: 18rem">
+                        <div class="card-header d-flex align-item-center justify-content-between">
+                            <h2 class="h5 pt-1"><?= $product->name ?></h2>
+                            <figure style="width: 30px">
                                 <img class="img-fluid d-block rounded-circle" src="<?= $product->getIcon() ?>" alt="<?= $product->animal_category->animal ?>">
                             </figure>
+                        </div>
+
+                        <img src="<?= $product->url_image ?>" class="card-img-top mt-3 p-4" alt="<?= $product->name ?>" style="height: 18rem">
+                        
+                        <div class="card-body text-center d-flex flex-column justify-content-center align-items-center">
 
                             <h5>Descrizione prodotto</h2>
                             <p class="card-text"><?= $product->description ?></p>
