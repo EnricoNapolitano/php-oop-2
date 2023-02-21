@@ -14,9 +14,9 @@
             <?php foreach($products as $product) : ?>
                 <div class="col">
                     <div class="card" style="width: 18rem">
-                        <div class="card-header d-flex align-item-center justify-content-between">
-                            <h2 class="h5 pt-1"><?= $product->name ?></h2>
-                            <figure style="width: 30px">
+                        <div class="card-header d-flex align-items-center justify-content-between">
+                            <h2 class="h5"><?= $product->name ?></h2>
+                            <figure class="mt-2" style="width: 35px">
                                 <img class="img-fluid d-block rounded-circle" src="<?= $product->getIcon() ?>" alt="<?= $product->animal_category->animal ?>">
                             </figure>
                         </div>
