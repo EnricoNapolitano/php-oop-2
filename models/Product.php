@@ -1,44 +1,77 @@
 <?php
-/* Immaginare quali sono le classi necessarie per creare uno shop online con le seguenti caratteristiche:
-- L'e-commerce vende prodotti per animali.
-- I prodotti sono categorizzati, le categorie sono Cani o Gatti.
-- Tra i prodotti, troviamo cibo, giochi, cucce, etc.
-Stampiamo delle card contenenti i dettagli dei prodotti, come immagine, titolo, prezzo,
-icona della categoria ed il tipo di articolo che si sta visualizzando (prodotto, cibo, gioco, cuccia ecc). */
-
-require_once __DIR__ . '/AnimalCategory.php';
+require_once __DIR__ . '/Category.php';
 
 class Product
 {
-    public $name;
-    public $price;
-    public $url_image;
-    public $description;
-    public $animal_category;
+    protected $name;
+    protected $price;
+    protected $url_image;
+    protected $description;
+    protected $category;
 
-    public function __construct($_price, $_name, $_description, $_animal_category, $_url_image = 'https://svg.template.creately.com/MIQyt1kde0t' )
+    public function __construct($price, $name, $description, Category $category, $url_image = 'https://svg.template.creately.com/MIQyt1kde0t' )
     {
-        $this->price=$_price;
-        $this->name=$_name;
-        $this->description=$_description;
-        $this->animal_category = new AnimalCategory($_animal_category);
-        $this->url_image=$_url_image;
+        $this->setPrice($price);
+        $this->setName($name);
+        $this->setDescription($description);
+        $this->setCategory($category);
+        $this->setUrlImage($url_image);
     }
 
-    private function setIcon($category)
+    // SETTERS AND GETTERS for construct's variables
+    public function setPrice($price)
     {
-        //check validation
-        if($category != 'cat' && $category != 'dog') return false;
-        else {
-            $cat_icon = 'https://www.robinsonpetshop.it/news/cms2017/wp-content/uploads/2022/07/GattinoPrimiMesi.jpg';
-            $dog_icon = 'https://images.squarespace-cdn.com/content/v1/58b4791ad2b857c893179e34/1537971642021-LHW76T7O8JG0M4GLTSTP/IMG_2818.jpg?format=500w';
-            return $category === 'cat' ? $cat_icon : $dog_icon ;
-        }
+        $this->price = $price;
+        return $this;
     }
-    
-    public function getIcon()
+
+    public function getPrice()
     {
-        return $this->setIcon($this->animal_category->animal);
+        return $this->price;
+    }
+
+    public function setName($name)
+    {
+        $this->name = $name;
+        return $this;
+    }
+
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    public function setDescription($description)
+    {
+        $this->description = $description;
+        return $this;
+    }
+
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    public function setCategory($category)
+    {
+        if(!$category instanceof Category) return false;
+        $this->category = $category;
+    }
+
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    public function setUrlImage($url_image)
+    {
+        $this->url_image = $url_image;
+        return $this;
+    }
+
+    public function getUrlImage()
+    {
+        return $this->url_image;
     }
 }
 ?>
