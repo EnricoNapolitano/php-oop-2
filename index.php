@@ -4,7 +4,7 @@
 <html lang="en">
 <?php include __DIR__ . '/partials/head.html' ?>
 <body>
-    <header class="bg-primary p-3 mb-5">
+    <header class="bg-success p-3 mb-5">
         <h1 class="text-center text-white">YPS - YourPetShop</h1>
     </header>
     
@@ -13,30 +13,39 @@
 
             <?php foreach($products as $product) : ?>
                 <div class="col">
-                    <div class="card" style="width: 18rem">
+
+                <!-- ***CARD*** -->
+                    <div class="card shadow-sm" style="width: 18rem; height: 40rem; cursor:pointer">
                         <div class="card-header d-flex align-items-center justify-content-between">
-                            <h2 class="h5"><?= $product->name ?></h2>
+                            <h2 class="h5"><?= $product->getName() ?></h2>
                             <figure class="mt-2" style="width: 35px">
-                                <img class="img-fluid d-block rounded-circle" src="<?= $product->getIcon() ?>" alt="<?= $product->animal_category->animal ?>">
+                                <img class="img-fluid d-block rounded-circle" src="<?= $product->getCategory()->createIcon() ?>" alt="<?= $product->getCategory()->getPet() ?>">
                             </figure>
                         </div>
 
-                        <img src="<?= $product->url_image ?>" class="card-img-top mt-3 p-4" alt="<?= $product->name ?>" style="height: 18rem">
+                        <div class="product-image">
+                            <img src="<?= $product->getUrlImage() ?>" class="card-img-top mt-3 p-4" alt="<?= $product->getName() ?>" style="height: 18rem">
+                            <p class="h5 text-bg-success p-3">Prezzo: <?= $product->getPrice() ?>€</p>
+                        </div>
                         
-                        <div class="card-body text-center d-flex flex-column justify-content-center align-items-center">
+                        <div class="card-body ">
 
-                            <h5>Descrizione prodotto</h2>
-                            <p class="card-text"><?= $product->description ?></p>
+                            <!-- product description -->
+                            <h5>Descrizione</h2>
+                            <p class="card-text"><?= $product->getDescription() ?></p>
 
+                            <!-- dimension -->
                             <?php if($product instanceof Cage) : ?>
                                 <h6>Dimensioni:</h6>
-                                <p><?= $product->width ?>cm x <?= $product->height ?>cm x <?= $product->depth ?>cm</p>
+                                <p><?= $product->getWidth() ?>cm x <?= $product->getHeight() ?>cm x <?= $product->getDepth() ?>cm</p>
                             <?php endif; ?>
 
+                            <!-- main ingredient -->
                             <?php if($product instanceof Food) : ?>
                                 <h6>Ingrediente principale</h6>
-                                <p><?= $product->main_ingredient ?></p>
+                                <p><?= $product->getMainIngredient() ?></p>
                             <?php endif; ?>
+
                         </div>
                     </div>
                 </div>
