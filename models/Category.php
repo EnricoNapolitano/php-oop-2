@@ -10,7 +10,7 @@ class Category
 
     public function setPet($pet)
     {
-        if($pet != 'cat' || $pet != 'dog'){
+        if($pet != 'cat' && $pet != 'dog'){
             throw new Exception ('Argument has to be a string with value "dog" or "cat"');
         }
         $this->pet=$pet;
