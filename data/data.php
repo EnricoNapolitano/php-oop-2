@@ -11,6 +11,12 @@ $cat_cage=new Cage(25, 'Gabbietta per gatti', 'Gabietta per trasporto gatti picc
 $tuna_food=new Food(6.5, 'Tonno squisito', 'Tonno per gatti', $cat, '31-12-2025', 'tonno', 'https://www.isoladeitesori.it/dw/image/v2/BGRZ_PRD/on/demandware.static/-/Sites-it-master-catalog/default/dw31e1937a/idt/143329.jpg?sw=800&sh=800' );
 $dog_toy=new Product(15, 'Rugby Ball', 'Palla ovale per il tuo cane', $dog, 'https://www.ecopoolservice.it/wp-content/uploads/2022/01/71p9V-dgV8L._AC_SL1500_.jpg');
 
-$products = [$bone_gum, $cat_cage, $tuna_food, $dog_toy];
+//setting shipping cost (from trait Shippable)
+$bone_gum->setShippingCost(4.99);
+$cat_cage->setShippingCost(7.49);
+$tuna_food->setShippingCost(3.99);
+$dog_toy->setShippingCost(4.99);
 
+$products = [$bone_gum, $cat_cage, $tuna_food, $dog_toy];
+// var_dump($products);
 ?>

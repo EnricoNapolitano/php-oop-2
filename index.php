@@ -15,7 +15,7 @@
                 <div class="col">
 
                 <!-- ***CARD*** -->
-                    <div class="card shadow-sm" style="width: 18rem; height: 40rem; cursor:pointer">
+                    <div class="card shadow-sm" style="width: 18rem; height: 42rem; cursor:pointer">
                         <div class="card-header d-flex align-items-center justify-content-between">
                             <h2 class="h5"><?= $product->getName() ?></h2>
                             <figure class="mt-2" style="width: 35px">
@@ -28,24 +28,28 @@
                             <p class="h5 text-bg-success p-3">Prezzo: <?= $product->getPrice() ?>€</p>
                         </div>
                         
-                        <div class="card-body ">
+                        <div class="card-body d-flex flex-column justify-content-between">
 
-                            <!-- product description -->
-                            <h5>Descrizione</h2>
-                            <p class="card-text"><?= $product->getDescription() ?></p>
+                            <div>
+                                <!-- product description -->
+                                <h5>Descrizione</h2>
+                                <p class="card-text"><?= $product->getDescription() ?></p>
+    
+                                <!-- dimension -->
+                                <?php if($product instanceof Cage) : ?>
+                                    <h6>Dimensioni:</h6>
+                                    <p><?= $product->getWidth() ?>cm x <?= $product->getHeight() ?>cm x <?= $product->getDepth() ?>cm</p>
+                                <?php endif; ?>
+    
+                                <!-- main ingredient -->
+                                <?php if($product instanceof Food) : ?>
+                                    <h6>Ingrediente principale</h6>
+                                    <p><?= $product->getMainIngredient() ?></p>
+                                <?php endif; ?>
+                            </div>
 
-                            <!-- dimension -->
-                            <?php if($product instanceof Cage) : ?>
-                                <h6>Dimensioni:</h6>
-                                <p><?= $product->getWidth() ?>cm x <?= $product->getHeight() ?>cm x <?= $product->getDepth() ?>cm</p>
-                            <?php endif; ?>
-
-                            <!-- main ingredient -->
-                            <?php if($product instanceof Food) : ?>
-                                <h6>Ingrediente principale</h6>
-                                <p><?= $product->getMainIngredient() ?></p>
-                            <?php endif; ?>
-
+                            <!-- shipping price -->
+                            <h6 class="text-success">Prezzo di spedizione: <?= $product->getShippingCost() ?>€</h6>
                         </div>
                     </div>
                 </div>
