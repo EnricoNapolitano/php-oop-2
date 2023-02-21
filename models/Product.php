@@ -1,8 +1,11 @@
 <?php
 require_once __DIR__ . '/Category.php';
+require_once __DIR__ . '/Shippable.php';
 
 class Product
 {
+    use Shippable;
+
     protected $name;
     protected $price;
     protected $url_image;
