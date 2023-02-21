@@ -1,8 +1,7 @@
 <?php
-require_once __DIR__ . '/AnimalCategory.php';
-require_once __DIR__ . '/Products.php';
+require_once __DIR__ . '/Product.php';
 
-class Cage extends Products
+class Cage extends Product
 {
     public $width;
     public $height;

@@ -8,7 +8,7 @@ icona della categoria ed il tipo di articolo che si sta visualizzando (prodotto,
 
 require_once __DIR__ . '/AnimalCategory.php';
 
-class Products
+class Product
 {
     public $name;
     public $price;

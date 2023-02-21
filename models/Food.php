@@ -1,9 +1,7 @@
 <?php
+require_once __DIR__ . '/Product.php';
 
-require_once __DIR__ . '/AnimalCategory.php';
-require_once __DIR__ . '/Products.php';
-
-class Food extends Products
+class Food extends Product
 {
     public $expiring_date;
     public $main_ingredient;
