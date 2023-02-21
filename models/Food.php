@@ -15,7 +15,7 @@ class Food extends Product
 
     public function setExpiringDate($date)
     {
-        $this->date = $date;
+        $this->expiring_date = $date;
     }
 
     public function getExpiringDate()
